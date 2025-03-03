@@ -1,8 +1,17 @@
-fastapi
-uvicorn
-opencv-python
-numpy
-easyocr
-pytesseract
-python-multipart
-pandas
+# Core web framework - latest version with minimal dependencies
+fastapi==0.103.1
+uvicorn==0.23.2
+
+# Image processing - lightweight configuration
+opencv-python-headless==4.8.0.76
+numpy==1.25.2
+pytesseract==0.3.10
+
+# For file uploads
+python-multipart==0.0.6
+
+# HTTP handling
+starlette==0.27.0
+pydantic==2.3.0
+
+# CORS support
