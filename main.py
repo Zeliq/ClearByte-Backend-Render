@@ -24,14 +24,24 @@ reader = easyocr.Reader(['en'])
 import pandas as pd
 
 # Load ingredient categories from CSV
-def load_ingredients_from_csv(csv_path="C:/Users/zeliqzayyan/OneDrive/Desktop/ingredient-checker/backend/Database1.csv"):
+import os
+import pandas as pd
+
+def load_ingredients_from_csv(csv_filename="Database1.csv"):
+    # Get the directory of the current script
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+    # Construct the full path inside the container
+    csv_path = os.path.join(BASE_DIR, csv_filename)
+
+    # Load the CSV file
     df = pd.read_csv(csv_path)
-    
+
     halal = df["halal"].dropna().str.lower().tolist()
     haram = df["non_category"].dropna().str.lower().tolist()
     vegan = df["vegan"].dropna().str.lower().tolist()
     vegetarian = df["vegetarian"].dropna().str.lower().tolist()
-    
+
     return halal, haram, vegan, vegetarian
 
 # Load categories

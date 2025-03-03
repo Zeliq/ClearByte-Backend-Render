@@ -5,3 +5,4 @@ numpy
 easyocr
 pytesseract
 python-multipart
+pandas
