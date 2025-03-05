@@ -86,7 +86,19 @@ async def upload_image(file: UploadFile = File(...)):
     text = await ocr_space_api(file_bytes)
     del file_bytes  # Free memory immediately
     
-    # Classification
+    # Check for insufficient text
+    if not text or len(text.strip()) < 10:
+        return {
+            "text": "Text is not visible, please try again.",
+            "classification": {
+                "halal": False,
+                "haram": False,
+                "vegan": False,
+                "vegetarian": False
+            }
+        }
+    
+    # Classification for valid text
     classification = classify_ingredients(text)
     
     return {"text": text, "classification": classification}
