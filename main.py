@@ -20,7 +20,7 @@ OCR_API_URL = "https://api.ocr.space/parse/image"
 OCR_API_KEY = "K84072634788957"  # Get free key from https://ocr.space/ocrapi
 
 # Load ingredient patterns
-def load_and_prepare_patterns(csv_path="Database1.csv"):
+def load_and_prepare_patterns(csv_path="Database2.csv"):
     df = pd.read_csv(csv_path)
     
     categories = {
